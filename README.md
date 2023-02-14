@@ -1,2 +1,2 @@
-# COMP4024
-For Group H
+# COMP4024 - AdventureGolf
+This is the repo for Group H
