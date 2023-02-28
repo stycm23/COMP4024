@@ -1530,3 +1530,4 @@ Received Import Request.
   path: Assets/Simple Roads/Materials
   artifactKey: Guid(be0ab68d44269cb44a668561de06b608) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Simple Roads/Materials using Guid(be0ab68d44269cb44a668561de06b608) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6bcb4a9ea0701f5a06b4bf94e04197e2') in 0.056335 seconds 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file

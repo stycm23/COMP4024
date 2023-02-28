@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Simple Roads/Sample Scenes/City Junction.unity
+- path: Assets/Scenes/ballControlDevSpace.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
