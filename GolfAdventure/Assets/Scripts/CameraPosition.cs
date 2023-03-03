@@ -20,7 +20,6 @@ public class CameraPosition : MonoBehaviour
     {
         Vector3 velocity = ballRB.velocity;
         //float angle = getAngleFromVelocity(velocity); //Depreciated
-
         transform.position = ball.transform.position;
     }
 
