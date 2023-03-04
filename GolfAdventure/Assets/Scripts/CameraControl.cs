@@ -27,9 +27,9 @@ public class CameraControl : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Mouse1) && !Input.GetKey(KeyCode.Mouse0)) 
         {
-            print("RMB Pressed");
+            Debug.Log("RMB Pressed");
             float rot = Input.GetAxis("Mouse X");
-            transform.Rotate(0.0f, 10 * Input.GetAxis("Mouse X"), 0.0f, Space.Self);
+            transform.Rotate(0.0f, lookSens * Input.GetAxis("Mouse X"), 0.0f, Space.Self);
         }
     }
 }
