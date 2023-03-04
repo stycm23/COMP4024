@@ -303,6 +303,7 @@
 -r:"C:/Program Files/Unity/Hub/Editor/2021.1.21f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll"
 "Assets/Scripts/CameraControl.cs"
 "Assets/Scripts/CameraPosition.cs"
+"Assets/Scripts/CameraZoom.cs"
 -langversion:8.0
 
 /deterministic
