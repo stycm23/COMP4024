@@ -7,6 +7,7 @@ public class BallControl : MonoBehaviour
     public float maxPower;
     public float lookSens = 10;
     public Rigidbody ball;
+    public GameObject powerVisual;
 
     private float shotPower = 0;
 
@@ -34,12 +35,20 @@ public class BallControl : MonoBehaviour
                 Debug.Log(shotPower);
                 
                 transform.Rotate(0, lookSens * Input.GetAxis("Mouse X"), 0);
+                UpdateVisual(shotPower);
             }
 
             if (Input.GetKeyUp(KeyCode.Mouse0))
             {
+                UpdateVisual(0f);
                 ball.AddForce(transform.forward * shotPower, ForceMode.Impulse);
             }
         }
+    }
+
+    void UpdateVisual(float power)
+    {
+        powerVisual.transform.localScale = new Vector3(1, 1, power/100);
+        powerVisual.GetComponentInChildren<Renderer>().material.color = new Color((power/100)*1, 0, 0);
     }
 }
