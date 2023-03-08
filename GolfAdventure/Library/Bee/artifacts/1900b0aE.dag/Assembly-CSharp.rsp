@@ -305,6 +305,7 @@
 "Assets/Scripts/CameraControl.cs"
 "Assets/Scripts/CameraPosition.cs"
 "Assets/Scripts/CameraZoom.cs"
+"Assets/Scripts/PowerupsControl.cs"
 -langversion:8.0
 
 /deterministic

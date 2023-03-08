@@ -32,7 +32,6 @@ public class BallControl : MonoBehaviour
                 shotPower += Input.GetAxis("Mouse Y") * -5f;
                 if (shotPower > maxPower) {shotPower = maxPower;}
                 if (shotPower < 0) {shotPower = 0;}
-                Debug.Log(shotPower);
                 
                 transform.Rotate(0, lookSens * Input.GetAxis("Mouse X"), 0);
                 UpdateVisual(shotPower);
