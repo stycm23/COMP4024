@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class PowerupsControl : MonoBehaviour
 {
-    public GameObject ball;
-
     public float speedIncrease;
+    //public GameObject ball;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +31,7 @@ public class PowerupsControl : MonoBehaviour
 
     private void SpeedBoost()
     {
-        ball.GetComponent<Rigidbody>().AddForce(transform.forward * speedIncrease, ForceMode.Impulse);
+        Rigidbody ballRB = this.GetComponent<Rigidbody>();
+        ballRB.AddForce(Vector3.Normalize(ballRB.velocity) * speedIncrease, ForceMode.Impulse);
     }
 }

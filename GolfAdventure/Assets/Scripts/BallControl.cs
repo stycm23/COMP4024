@@ -29,7 +29,7 @@ public class BallControl : MonoBehaviour
             {
             if(Input.GetKey(KeyCode.Mouse0))
             {
-                shotPower += Input.GetAxis("Mouse Y") * -5f;
+                shotPower += Input.GetAxis("Mouse Y") * -2.5f;
                 if (shotPower > maxPower) {shotPower = maxPower;}
                 if (shotPower < 0) {shotPower = 0;}
                 
@@ -40,6 +40,7 @@ public class BallControl : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.Mouse0))
             {
                 UpdateVisual(0f);
+                Debug.Log(shotPower);
                 ball.AddForce(transform.forward * shotPower, ForceMode.Impulse);
             }
         }
@@ -47,7 +48,7 @@ public class BallControl : MonoBehaviour
 
     void UpdateVisual(float power)
     {
-        powerVisual.transform.localScale = new Vector3(1, 1, power/100);
-        powerVisual.GetComponentInChildren<Renderer>().material.color = new Color((power/100)*1, 0, 0);
+        powerVisual.transform.localScale = new Vector3(1, 1, power/maxPower);
+        powerVisual.GetComponentInChildren<Renderer>().material.color = new Color((power/maxPower)*1, 0, 0);
     }
 }
