@@ -1,5 +1,9 @@
 sceneSetups:
+<<<<<<< HEAD
+- path: Assets/Scenes/LevelDesign.unity
+=======
 - path: Assets/Scenes/ballControlDevSpace.unity
+>>>>>>> origin/dev
   isLoaded: 1
   isActive: 1
   isSubScene: 0
