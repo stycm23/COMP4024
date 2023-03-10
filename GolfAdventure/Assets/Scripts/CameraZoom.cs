@@ -15,27 +15,31 @@ public class CameraZoom : MonoBehaviour
     void Start()
     {
         playerCam.position = defaultCamPos;
+        ball = GameObject.FindGameObjectWithTag("Ball").transform;
     }
 
     void FixedUpdate()
     {
-        transform.LookAt(rig);
-        transform.position = playerCam.position;
+        if (ball != null)
+        {
+            transform.LookAt(rig);
+            transform.position = playerCam.position;
 
-        RaycastHit hit;
-        Physics.Raycast(transform.position, (ball.position-transform.position), out hit, Vector3.Distance(transform.position, ball.position));
-        
-        if (hit.transform == ball)
-        {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
-            Debug.Log("Can be seen");
-            //zoomCamera(true);
-        }
-        else 
-        {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
-            Debug.Log("Can't be seen");
-            //zoomCamera(false);
+            RaycastHit hit;
+            Physics.Raycast(transform.position, (ball.position-transform.position), out hit, Vector3.Distance(transform.position, ball.position));
+            
+            if (hit.transform == ball)
+            {
+                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
+                Debug.Log("Can be seen");
+                //zoomCamera(true);
+            }
+            else 
+            {
+                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
+                Debug.Log("Can't be seen");
+                //zoomCamera(false);
+            }
         }
 
     }

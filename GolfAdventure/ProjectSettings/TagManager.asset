@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - SpeedBoost
+  - Ball
+  - Manager
+  - Goal
+  - Level
   layers:
   - Default
   - TransparentFX
