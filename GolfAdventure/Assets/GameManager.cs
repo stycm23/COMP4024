@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -29,11 +30,11 @@ public class GameManager : MonoBehaviour
         {
             if(goal.GetComponent<FinishState>().CheckFinishState())
             {
+                goal.GetComponent<FinishState>().NotFinished();
                 Debug.Log(lvlShots);
                 NextLevel();
-                goal.GetComponent<FinishState>().NotFinished();
             }
-        }
+        } else {goal = GameObject.FindGameObjectWithTag("Goal");}
     }
 
     // Add extra shot
@@ -54,14 +55,14 @@ public class GameManager : MonoBehaviour
             GameObject.Destroy(GameObject.FindGameObjectWithTag("Level"));
         }
 
+        currentLvl += 1;
+
         if (currentLvl > levels.Length - 1)
         {
             EndGame();
         } 
-
         else 
         {
-            currentLvl += 1;
             GameObject.Instantiate(levels[currentLvl]);
             goal = GameObject.FindGameObjectWithTag("Goal");
         }
@@ -70,5 +71,6 @@ public class GameManager : MonoBehaviour
     void EndGame()
     {
         Debug.Log("End Game");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
