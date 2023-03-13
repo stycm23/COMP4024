@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public GameObject[] levels;
     public GameObject goal;
     public GameObject cameraRig;
+    public GameObject scoreText;
+    private bool endGame = false;
 
     int currentLvl = -1;
     int totalShots = 0;
@@ -34,7 +37,20 @@ public class GameManager : MonoBehaviour
                 Debug.Log(lvlShots);
                 NextLevel();
             }
-        } else {goal = GameObject.FindGameObjectWithTag("Goal");}
+        }
+
+        else if (endGame == true)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            scoreText = GameObject.FindGameObjectWithTag("Score"); 
+            if (scoreText != null)
+            {
+                scoreText.GetComponent<Text>().text = "Score: " + totalShots;
+            }
+        } 
+        
+        else {goal = GameObject.FindGameObjectWithTag("Goal");}
     }
 
     // Add extra shot
@@ -71,6 +87,14 @@ public class GameManager : MonoBehaviour
     void EndGame()
     {
         Debug.Log("End Game");
+        endGame = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+        scoreText = GameObject.FindGameObjectWithTag("Score"); 
+        if (scoreText != null)
+        {
+            scoreText.GetComponent<Text>().text = "Score: " + totalShots;
+        }
+
     }
 }
